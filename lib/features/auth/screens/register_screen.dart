@@ -28,13 +28,22 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
     if (!mounted) return;
     if (success) {
-      // TODO: Navigator.pushReplacementNamed(context, AppRoutes.home);
+      // Navigate to login or home after successful register
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Account created successfully!')),
+        const SnackBar(
+          content: Text('Account created successfully!'),
+          backgroundColor: Colors.green,
+        ),
       );
+      // Go back to login
+      Navigator.pop(context);
     } else {
+      // Show API error
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Registration failed. Please try again.')),
+        SnackBar(
+          content: Text(_controller.errorMessage ?? 'Registration failed'),
+          backgroundColor: Colors.red,
+        ),
       );
     }
   }
