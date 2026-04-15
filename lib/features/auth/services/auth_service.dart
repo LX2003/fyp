@@ -28,38 +28,7 @@ class AuthService {
       },
     );
 
-    print('Register response: ${response.data}');
-
-    // ADD THESE ONE BY ONE
-    try {
-      final data = response.data['data'];
-      print('data: $data');
-
-      final accessToken = data['access_token'];
-      print('access_token: $accessToken');
-
-      final refreshToken = data['refresh_token'];
-      print('refresh_token: $refreshToken');
-
-      final user = data['user'];
-      print('user: $user');
-
-      final userId = user['user_id'];
-      print('user_id: $userId, type: ${userId.runtimeType}');
-
-      final authResponse = AuthResponse.fromJson(response.data);
-      print('AuthResponse parsed successfully');
-      
-      await _saveTokens(authResponse.accessToken, authResponse.refreshToken);
-      print('Tokens saved successfully');
-      
-      return authResponse;
-    } catch (e, stackTrace) {
-      print('Parse error: $e');
-      print('Stack trace: $stackTrace');
-      rethrow;
-    }
-
+    return AuthResponse.fromJson(response.data);
   }
 
   // ── Login ─────────────────────────────────────────
