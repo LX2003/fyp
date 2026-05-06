@@ -24,7 +24,7 @@ class AuthResponse {
 }
 
 class UserData {
-  final int userId;
+  final String userId;
   final String username;
   final String role;
 
@@ -36,7 +36,7 @@ class UserData {
 
   factory UserData.fromJson(Map<String, dynamic> json) {
     return UserData(
-      userId: json['user_id'] as int,
+      userId: (json['user_id'] ?? json['user_ID'] ?? json['userId'] ?? '').toString(),
       username: json['username'] ?? '',
       role: json['role'] ?? '',
     );

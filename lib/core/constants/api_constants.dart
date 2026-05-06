@@ -1,11 +1,19 @@
 class ApiConstants {
   // For Android emulator use 10.0.2.2 instead of localhost
   // For physical device use your PC's IP e.g. 192.168.1.5
-  static const String baseUrl = 'http://10.0.2.2:3000/api';
+  static const String baseUrl = 'http://192.168.1.5:3000/api';
 
   // Auth endpoints
   static const String register = '/auth/register';
   static const String login = '/auth/login';
   static const String me = '/auth/me';
   static const String refresh = '/auth/refresh';
+
+  // Account endpoints
+  static const String accountBalance = '/accounts/balance';
+  static const String accountHistory = '/accounts/history';
+  static const String accountPockets = '/accounts/pockets';
+  static const String accountQrCode = '/accounts/qr-code';
+  static const String accountTransfer = '/accounts/transfer';
+  static const String accountQrPay = '/accounts/qr-pay';
 }

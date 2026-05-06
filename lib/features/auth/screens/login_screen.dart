@@ -29,14 +29,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
     if (!mounted) return;
     if (success) {
-      // TODO: Navigate to home screen
-      // Navigator.pushReplacementNamed(context, AppRoutes.home);
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Login successful!'),
-          backgroundColor: Colors.green,
-        ),
-      );
+      Navigator.pushReplacementNamed(context, AppRoutes.home);
     } else {
       // Show API error message
       ScaffoldMessenger.of(context).showSnackBar(
